@@ -3,8 +3,6 @@ package br.steps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.pt.Dado;
-import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 import org.junit.Assert;
@@ -13,18 +11,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.Calendar;
-import java.util.Date;
 
-public class AprenderCucumberSteps {
+
+public class CucumberSteps {
 
 	private WebDriver driver;
 	private TestConfig testConfig;
 	private WebDriverWait wait;
-	public String price;
 
 	@Given("my kids wants a new laptop")
 	public void my_kids_wants_a_new_laptop() {
@@ -57,16 +51,12 @@ public class AprenderCucumberSteps {
 	}
 
 	@Então("back to home")
-	public void back_to_home() throws InterruptedException {
+	public void back_to_home()  {
 		testConfig.waitElementToClick("//*[@id=\"orderModal\"]/div/div/div[3]/button[1]");
 		testConfig.clickButton(By.xpath("//a[text()='Home ']"));
 
 	}
 
-	@Entao("a especificação deve finalizar com sucesso")
-	public void a_especificação_deve_finalizar_com_sucesso() {
-
-	}
 
 
 
