@@ -25,13 +25,13 @@ public class TestConfig {
     }
 
     @Given("click in the button 2")
-    public void clickButton(By by){
+    public void clickButton(By by) {
         driver.findElement(by).click();
 
     }
 
     @Given("click in the button {string}")
-    public void click_in_the_button(String element){
+    public void click_in_the_button(String element) {
         driver.findElement(By.xpath(element)).click();
 
     }
@@ -46,67 +46,22 @@ public class TestConfig {
 
     }
 
-    @When("execute")
-    public void executá_lo() throws InterruptedException {
-        driver.get("https://demoblaze.com/");
-        testConfig.clickButton(By.xpath("//a[text()='Laptops']"));
-        testConfig.waitElementToClick("//*[@id=\"tbodyid\"]//a[contains(text(),\"MacBook air\")]");
-        testConfig.waitElementToClick(("//*[@id=\"tbodyid\"]/div//a[contains(text(), \"Add to cart\")]"));
-        testConfig.waitPresenceOfAlert();
-        testConfig.clickButton(By.id("cartur"));
-        testConfig.clickButton(By.xpath("//*[@id=\"page-wrapper\"]/div/div[2]//button[contains(text(),\"Place Order\" )]"));
-        Thread.sleep(1000);
-        testConfig.write(By.id("name"), "John Doe");
-        testConfig.write(By.id("country"), "Portugal");
-        testConfig.write(By.id("city"), "Lisbon");
-        testConfig.write(By.id("card"), "375567668884617");
-        testConfig.write(By.id("month"), "Month: 02");
-        testConfig.write(By.id("year"), "2030");
-        testConfig.waitElementToClick(("//*[@id=\"orderModal\"]/div/div/div[3]/button[2]"));
-        //TODO PEGAR OS VALORES PRA  VALIDAÇÃO
-        testConfig.waitElementToClick("//*[@id=\"orderModal\"]/div/div/div[3]/button[2]");
-//        //TODO ESSE PATH DEBAIXO
-        testConfig.waitElementToClick("//div[@class='sa-confirm-button-container']//button");
-        testConfig.waitElementToClick("//*[@id=\"orderModal\"]/div/div/div[3]/button[1]");
-        testConfig.clickButton(By.xpath("//a[text()='Home ']"));
 
-    }
-
-
-
-
-
-
-
-    public void waitElementToClick(String xpath){
+    public void waitElementToClick(String xpath) {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath))).click();
     }
 
-    public void write(By by, String value){
+    public void write(By by, String value) {
         driver.findElement(by).sendKeys(value);
     }
 
-    public void waitPresenceOfAlert(){
+    public void waitPresenceOfAlert() {
         wait.until(ExpectedConditions.alertIsPresent());
         Alert alert = driver.switchTo().alert();
         String text = alert.getText();
         alert.accept();
     }
 
-
-    public WebDriver getChromeDriver(){
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Yuri Ramalho Silva\\OneDrive\\Documentos\\testing\\accenture\\accenture-qa\\drivers");
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        return driver;
-    }
-
-    public WebDriver getFirefoxDriver(){
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Yuri Ramalho Silva\\OneDrive\\Documentos\\testing\\accenture\\accenture-qa\\drivers");
-        WebDriver driver = new FirefoxDriver();
-        driver.manage().window().maximize();
-        return driver;
-    }
 
     @When("click in the laptops")
     public void clickInTheLaptops() {
@@ -118,7 +73,7 @@ public class TestConfig {
     }
 
     @Given("open the google chrome page {string}")
-    public void open_the_google_chrome_page(String page){
+    public void open_the_google_chrome_page(String page) {
         driver.get(page);
     }
 }
