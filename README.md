@@ -1,3 +1,4 @@
+# PT-BR
 # accenture-test
 
 
@@ -31,3 +32,29 @@ OBS: pode-se utilizar o gerenciador de pacotes maven com o comando "mvn -Dtest=e
 
 
 Execute mvn install para a instalação das dependências!
+
+#ENG
+#accenture-test
+This is the requested test automation for the accenture test
+
+Technologies 💻 The project was developed with the following technologies:
+
+Package Manager: Maven 
+Test Lib: Junit 4 
+BDD Tool: Cucumber 
+Test Framework: SeleniumWebdriver
+
+How to contribute ✔ 
+Fork this repository; 
+Create a branch with your feature: git checkout -b my-feature; 
+Commit your changes: git commit -m 'feat: My new feature'; 
+Push to your branch: git push origin my-feature. After your pull request is merged, you can delete your branch.
+
+To run the application 💻
+You can run the application via Junit, when correctly installed, just run the "RunnerTest" class in your preferred IDE 
+Note: You can use the maven package manager with the command "mvn -Dtest=example9 test " in the following path:"accenture\accenture-qa"
+the drivers that need to be installed to run the tests are located in "accenture-qa/drivers"
+
+The evidences of testes is in this directory: "target/testEvidences"
+
+Run mvn install to install dependencies!
